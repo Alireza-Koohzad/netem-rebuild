@@ -24,3 +24,19 @@ aliases_local_path = "data/raw/string/v12.5/9606.protein.aliases.v12.5.txt.gz"
 
 links_sha256 = "1AFECE499D2508D46148F647A245B5FD4E9DE89B63B64665331C8BDF8622224A"
 aliases_sha256 = "B65F730B993ED0C1BD72EDF4565D3D425DB42861101B29699704810E8F125680"
+
+[sources.ctd]
+name = "CTD"
+role = "chemical_gene_interaction"
+
+snapshot_type = "rolling_report"
+report_created = "2026-09-29"
+download_date = "2026-10-02"
+
+filename = "CTD_chem_gene_ixns.csv.gz"
+local_path = "data/raw/ctd/2026-10-02/CTD_chem_gene_ixns.csv.gz"
+
+sha256 = "84ed0fc7104fb886296157ea2da1690e9519ad8c8ba5450988936302c43fc82a"
+
+source_url = "https://ctdbase.org/downloads/"
+

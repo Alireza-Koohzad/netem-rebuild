@@ -38,7 +38,11 @@ required_columns = [
 [nodes.chemical]
 required_columns = [
     "canonical_id",
-    "name"
+    "name",
+    "cas_rn"
+]
+optional_value_columns = [
+    "cas_rn"
 ]
 
 [nodes.pathway]
@@ -62,11 +66,9 @@ required_columns = [
 ]
 
 unique_key = [
-    "source_type",
     "source_id",
-    "relation",
-    "target_type",
-    "target_id"
+    "target_id",
+    "relation"
 ]
 
 

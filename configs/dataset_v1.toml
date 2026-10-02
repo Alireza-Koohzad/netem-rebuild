@@ -126,3 +126,43 @@ gene_pairs_before_threshold = 633904
 primary_edges = 422581
 primary_active_genes = 17409
 ambiguous_proteins = 2
+
+[chemical_gene_network]
+source = "CTD"
+relation = "chemical_gene_interaction"
+
+organism_id = 9606
+
+chemical_namespace = "MESH"
+gene_mapping = "NCBI_Gene_to_HGNC"
+
+directed = true
+canonical_direction = "chemical_to_gene"
+
+binary_only = true
+exclude_cotreatment = true
+exclude_no_effect = true
+
+preserve_interaction_actions = true
+preserve_gene_forms = true
+preserve_pubmed_ids = true
+
+[chemical_gene_network.expected_build]
+strict_curated_rows = 696222
+chemicals = 9601
+edges = 595993
+active_core_genes = 18977
+chemicals_without_cas = 4475
+
+
+[edge_attributes.chemical_gene]
+required_columns = [
+    "source_id",
+    "target_id",
+    "relation",
+    "supporting_curated_rows",
+    "supporting_pubmed_count",
+    "pubmed_ids",
+    "interaction_actions",
+    "gene_forms"
+]
