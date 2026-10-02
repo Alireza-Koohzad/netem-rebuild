@@ -1,0 +1,104 @@
+[contract]
+name = "NetEM-Rebuild Data Contract"
+version = "1.0.0"
+
+[identifiers]
+preserve_source_identifiers = true
+generate_artificial_biological_ids = false
+node_identity = "node_type + canonical_id"
+
+[identifiers.namespaces]
+gene = "HGNC"
+chemical = "MESH"
+pathway = "Reactome"
+tissue = "UBERON"
+
+
+[nodes]
+required_columns = [
+    "canonical_id",
+    "name"
+]
+
+unique_key = [
+    "node_type",
+    "canonical_id"
+]
+
+
+[nodes.gene]
+required_columns = [
+    "canonical_id",
+    "symbol",
+    "name",
+    "ensembl_gene_id",
+    "ncbi_gene_id"
+]
+
+[nodes.chemical]
+required_columns = [
+    "canonical_id",
+    "name"
+]
+
+[nodes.pathway]
+required_columns = [
+    "canonical_id",
+    "name"
+]
+
+[nodes.tissue]
+required_columns = [
+    "canonical_id",
+    "name"
+]
+
+
+[edges]
+required_columns = [
+    "source_id",
+    "target_id",
+    "relation"
+]
+
+unique_key = [
+    "source_type",
+    "source_id",
+    "relation",
+    "target_type",
+    "target_id"
+]
+
+
+[provenance]
+required_for_every_source = true
+
+required_fields = [
+    "source_name",
+    "source_version",
+    "download_date",
+    "source_url"
+]
+
+preserve_raw_record_reference = true
+
+
+[raw_data]
+immutable = true
+manual_editing_allowed = false
+
+[processed_data]
+manual_editing_allowed = false
+generated_only_by_pipeline = true
+
+
+[missing_values]
+empty_string_allowed = false
+text_missing_value = "NA"
+
+[validation]
+reject_duplicate_node_keys = true
+reject_duplicate_final_edges = true
+reject_unknown_node_types = true
+reject_unknown_relation_types = true
+reject_edges_with_missing_nodes = true
