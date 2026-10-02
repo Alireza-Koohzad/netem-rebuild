@@ -61,6 +61,7 @@ directed = true
 enabled = true
 source_type = "gene"
 target_type = "pathway"
+relation = "participates_in_pathway"
 directed = true
 
 [edge_types.gene_tissue]
@@ -166,3 +167,47 @@ required_columns = [
     "interaction_actions",
     "gene_forms"
 ]
+
+
+[gene_pathway_network]
+source = "Reactome"
+source_version = "97"
+
+primary_mapping = "NCBI2Reactome"
+crosscheck_mapping = "Ensembl2Reactome"
+
+relation = "participates_in_pathway"
+
+organism = "Homo sapiens"
+taxon_id = 9606
+
+mapping_identifier = "NCBI_Gene"
+gene_mapping = "NCBI_Gene_to_HGNC"
+
+pathway_namespace = "Reactome"
+pathway_level = "lowest_level"
+
+minimum_core_gene_count = 5
+maximum_core_gene_count = 0
+
+include_evidence_codes = ["TAS", "IEA"]
+preserve_evidence_codes = true
+preserve_support_count = true
+
+include_disease_pathways = true
+annotate_disease_pathways = true
+disease_pathway_source = "HumanDiseasePathways.txt"
+
+directed = true
+
+[gene_pathway_network.sensitivity]
+tas_only = true
+target_disease_pathway_masking = true
+
+[gene_pathway_network.expected_build]
+pathways = 1633
+disease_pathways = 185
+edges = 47326
+active_core_genes = 11191
+core_gene_coverage_percent = 57.99
+maximum_pathway_size = 477

@@ -40,3 +40,33 @@ sha256 = "84ed0fc7104fb886296157ea2da1690e9519ad8c8ba5450988936302c43fc82a"
 
 source_url = "https://ctdbase.org/downloads/"
 
+
+
+[sources.reactome]
+name = "Reactome"
+role = "gene_pathway"
+
+version = "97"
+release_date = "2026-06-30"
+taxon_id = 9606
+
+primary_mapping = "NCBI2Reactome"
+crosscheck_mapping = "Ensembl2Reactome"
+
+ncbi_mapping_filename = "NCBI2Reactome.txt"
+ensembl_mapping_filename = "Ensembl2Reactome.txt"
+pathways_filename = "ReactomePathways.txt"
+disease_pathways_filename = "HumanDiseasePathways.txt"
+
+ncbi_mapping_local_path = "data/raw/reactome/v97/NCBI2Reactome.txt"
+ensembl_mapping_local_path = "data/raw/reactome/v97/Ensembl2Reactome.txt"
+pathways_local_path = "data/raw/reactome/v97/ReactomePathways.txt"
+disease_pathways_local_path = "data/raw/reactome/v97/HumanDiseasePathways.txt"
+
+ncbi_mapping_sha256 = "44aec2f3d6c0d6f03268fbdc66f95a14673e86da31682b7edbd71c6c6a1ecc8d"
+ensembl_mapping_sha256 = "34852dc2ac258a851bad914708c0045a636161dbbeca604f04343174cca8d7fb"
+pathways_sha256 = "f6d7a2bf89b5bcfe0250a0bc7f51bff94641447911712b8ff129f5b55e52df3a"
+disease_pathways_sha256 = "c044494679237839b0b0e8c132e785bf88021d92f3708d352313c928a72b32e0"
+
+download_page = "https://reactome.org/download/current/"
+release_archive = "https://doi.org/10.5281/zenodo.21383214"

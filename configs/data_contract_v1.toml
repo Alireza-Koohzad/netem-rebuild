@@ -48,8 +48,19 @@ optional_value_columns = [
 [nodes.pathway]
 required_columns = [
     "canonical_id",
-    "name"
+    "name",
+    "is_disease_pathway"
 ]
+
+[edge_attributes.gene_pathway]
+required_columns = [
+    "source_id",
+    "target_id",
+    "relation",
+    "evidence_codes",
+    "supporting_mapping_rows"
+]
+
 
 [nodes.tissue]
 required_columns = [
