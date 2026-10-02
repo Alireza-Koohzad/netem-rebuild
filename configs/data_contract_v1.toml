@@ -102,3 +102,20 @@ reject_duplicate_final_edges = true
 reject_unknown_node_types = true
 reject_unknown_relation_types = true
 reject_edges_with_missing_nodes = true
+
+[edge_attributes.gene_gene]
+required_columns = [
+    "source_id",
+    "target_id",
+    "relation",
+    "combined_score",
+    "experimental_score",
+    "database_score",
+    "textmining_score",
+    "supporting_protein_pairs"
+]
+
+score_range_min = 150
+score_range_max = 999
+
+aggregation_policy = "best_protein_pair_by_combined_score"

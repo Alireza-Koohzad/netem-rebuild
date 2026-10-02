@@ -97,3 +97,32 @@ allow_new_edge_types = true
 preserve_source_provenance = true
 preserve_raw_source_attributes = true
 keep_raw_data_immutable = true
+
+[gene_gene_network]
+source = "STRING"
+network_type = "physical"
+relation = "physically_associates_with"
+
+primary_score_threshold = 400
+sensitivity_score_thresholds = [700]
+
+score_field = "combined_score"
+score_scale = 1000
+
+directed = false
+remove_self_loops = true
+collapse_reciprocal_edges = true
+
+protein_to_gene_mapping = "identifier_reconciliation"
+ambiguous_mapping_policy = "reject"
+
+protein_pair_collapse = "best_combined_score"
+preserve_support_count = true
+preserve_channel_scores = true
+
+[gene_gene_network.expected_build]
+raw_unique_protein_pairs = 648245
+gene_pairs_before_threshold = 633904
+primary_edges = 422581
+primary_active_genes = 17409
+ambiguous_proteins = 2

@@ -7,3 +7,20 @@ filename = "hgnc_complete_set_2026-09-04.tsv"
 archive_page = "https://hgnc.genenames.org/download/archive/monthly/tsv/"
 local_path = "data/raw/hgnc/2026-09-04/hgnc_complete_set_2026-09-04.tsv"
 sha256 = "6F43D6FF43AA9FDFA5FB2F20A20A7CACE66E6E02E2A0DCF19D9B726E2E248D20"
+
+
+[sources.string]
+name = "STRING"
+role = "gene_gene_physical_association"
+version = "12.5"
+taxon_id = 9606
+network_type = "physical"
+
+links_filename = "9606.protein.physical.links.detailed.v12.5.txt.gz"
+aliases_filename = "9606.protein.aliases.v12.5.txt.gz"
+
+links_local_path = "data/raw/string/v12.5/9606.protein.physical.links.detailed.v12.5.txt.gz"
+aliases_local_path = "data/raw/string/v12.5/9606.protein.aliases.v12.5.txt.gz"
+
+links_sha256 = "1AFECE499D2508D46148F647A245B5FD4E9DE89B63B64665331C8BDF8622224A"
+aliases_sha256 = "B65F730B993ED0C1BD72EDF4565D3D425DB42861101B29699704810E8F125680"
