@@ -1,0 +1,9 @@
+[sources.hgnc]
+name = "HGNC"
+role = "gene_identity_and_mapping"
+snapshot_type = "monthly_archive"
+release_date = "2026-09-04"
+filename = "hgnc_complete_set_2026-09-04.tsv"
+archive_page = "https://hgnc.genenames.org/download/archive/monthly/tsv/"
+local_path = "data/raw/hgnc/2026-09-04/hgnc_complete_set_2026-09-04.tsv"
+sha256 = "6F43D6FF43AA9FDFA5FB2F20A20A7CACE66E..."
