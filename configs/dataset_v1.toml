@@ -15,6 +15,17 @@ target_disease_count_min = 2
 target_disease_count_max = 4
 status = "not_frozen"
 
+[gene_universe]
+catalog_scope = "all_approved_hgnc"
+core_scope = "protein_coding"
+
+required_locus_group = "protein-coding gene"
+required_locus_type = "gene with protein product"
+
+require_ensembl_gene_id = false
+require_ncbi_gene_id = false
+
+retain_non_core_genes_in_catalog = true
 
 [node_types.gene]
 enabled = true
