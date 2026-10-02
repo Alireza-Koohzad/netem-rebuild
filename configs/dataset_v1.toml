@@ -1,0 +1,88 @@
+[dataset]
+name = "NetEM-Rebuild"
+version = "1.0.0"
+organism = "Homo sapiens"
+taxon_id = 9606
+
+[dataset.scope]
+core_graph = true
+disease_nodes = false
+disease_profiles_separate = true
+
+[disease_scope]
+strategy = "focused"
+target_disease_count_min = 2
+target_disease_count_max = 4
+status = "not_frozen"
+
+
+[node_types.gene]
+enabled = true
+canonical_namespace = "HGNC"
+canonical_field = "hgnc_id"
+
+[node_types.chemical]
+enabled = true
+canonical_namespace = "MESH"
+
+[node_types.pathway]
+enabled = true
+canonical_namespace = "Reactome"
+
+[node_types.tissue]
+enabled = true
+canonical_namespace = "UBERON"
+
+
+[edge_types.gene_gene]
+enabled = true
+source_type = "gene"
+target_type = "gene"
+directed = false
+
+[edge_types.chemical_gene]
+enabled = true
+source_type = "chemical"
+target_type = "gene"
+directed = true
+
+[edge_types.gene_pathway]
+enabled = true
+source_type = "gene"
+target_type = "pathway"
+directed = true
+
+[edge_types.gene_tissue]
+enabled = true
+source_type = "gene"
+target_type = "tissue"
+directed = true
+
+
+[source_plan.hgnc]
+role = "gene_identity_and_mapping"
+status = "planned"
+
+[source_plan.string]
+role = "gene_gene"
+status = "planned"
+
+[source_plan.ctd]
+role = "chemical_gene"
+status = "planned"
+
+[source_plan.reactome]
+role = "gene_pathway"
+status = "planned"
+
+[source_plan.bgee]
+role = "gene_tissue"
+status = "planned"
+
+
+[design]
+allow_new_node_types = true
+allow_new_edge_types = true
+preserve_source_provenance = true
+preserve_raw_source_attributes = true
+keep_raw_data_immutable = true
