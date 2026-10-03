@@ -261,3 +261,57 @@ maximum_gene_degree = 40
 
 maximum_tissue_degree = 5172
 maximum_fdr = 0.01
+
+
+
+
+[core_graph_v1]
+status = "frozen"
+version = "1.0.0"
+
+organism = "Homo sapiens"
+taxon_id = 9606
+
+node_types = [
+    "gene",
+    "chemical",
+    "pathway",
+    "tissue"
+]
+
+relations = [
+    "physically_associates_with",
+    "chemical_gene_interaction",
+    "participates_in_pathway",
+    "expressed_in"
+]
+
+[core_graph_v1.node_counts]
+gene = 19297
+chemical = 9601
+pathway = 1633
+tissue = 301
+total = 30832
+
+[core_graph_v1.edge_counts]
+gene_gene = 422581
+chemical_gene = 595993
+gene_pathway = 47326
+gene_tissue = 548568
+total = 1614468
+
+[core_graph_v1.coverage]
+active_genes = 19251
+orphan_genes = 46
+gene_coverage_percent = 99.76
+
+[core_graph_v1.connectivity]
+components = 47
+giant_component_nodes = 30786
+giant_component_fraction_percent = 99.85
+non_giant_components_are_singletons = true
+
+[core_graph_v1.annotations]
+disease_pathways = 185
+disease_pathways_retained = true
+generic_tissue_uberon_0000468_excluded = true

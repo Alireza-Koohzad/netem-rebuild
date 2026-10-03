@@ -1,0 +1,664 @@
+{
+  "description": "Reproducible heterogeneous human biological network containing Gene, Chemical, Pathway, and Tissue nodes.",
+  "keywords": [
+    "heterogeneous-network",
+    "disease-module",
+    "gene",
+    "chemical",
+    "pathway",
+    "tissue",
+    "graph-neural-network"
+  ],
+  "name": "netem-rebuild",
+  "netem": {
+    "config_files": {
+      "data_contract_v1.toml": {
+        "sha256": "838f17b4141b18ff290d2e12727385409ff6908094fa51cb111937a0fa8fa25a"
+      },
+      "dataset_v1.toml": {
+        "sha256": "8a3b9e11cbad3fb68db48acfc19f1eeb38d768f35a05b83a33449217bcbae3fe"
+      },
+      "sources_v1.toml": {
+        "sha256": "1d16f3103ff2c6024412e852332b3be2899156111c3793ebb262867d00caa978"
+      }
+    },
+    "core_graph": {
+      "annotations": {
+        "disease_pathways": 185,
+        "disease_pathways_retained": true,
+        "generic_tissue_uberon_0000468_excluded": true
+      },
+      "connectivity": {
+        "components": 47,
+        "giant_component_fraction_percent": 99.85,
+        "giant_component_nodes": 30786,
+        "non_giant_components_are_singletons": true
+      },
+      "coverage": {
+        "active_genes": 19251,
+        "gene_coverage_percent": 99.76,
+        "orphan_genes": 46
+      },
+      "edge_counts": {
+        "chemical_gene": 595993,
+        "gene_gene": 422581,
+        "gene_pathway": 47326,
+        "gene_tissue": 548568,
+        "total": 1614468
+      },
+      "node_counts": {
+        "chemical": 9601,
+        "gene": 19297,
+        "pathway": 1633,
+        "tissue": 301,
+        "total": 30832
+      },
+      "status": "frozen",
+      "version": "1.0.0"
+    },
+    "data_contract": {
+      "name": "NetEM-Rebuild Data Contract",
+      "version": "1.0.0"
+    },
+    "organism": {
+      "name": "Homo sapiens",
+      "taxon_id": 9606
+    },
+    "source_snapshots": {
+      "bgee": {
+        "condition_scope": "anatomical_entities_only",
+        "download_page": "https://www.bgee.org/download/gene-expression-calls?id=9606",
+        "file_format": "advanced",
+        "filename": "Homo_sapiens_expr_advanced.tsv.gz",
+        "local_path": "data/raw/bgee/v15.2/Homo_sapiens_expr_advanced.tsv.gz",
+        "name": "Bgee",
+        "release_date": "2024-05-21",
+        "role": "gene_tissue",
+        "sha256": "3d8bacc5cb0e075ec55b90aa6ee0d72fce763a62b5d996384f18a802501da386",
+        "source_url": "https://www.bgee.org/ftp/bgee_v15/download/calls/expr_calls/Homo_sapiens_expr_advanced.tsv.gz",
+        "taxon_id": 9606,
+        "version": "15.2"
+      },
+      "ctd": {
+        "download_date": "2026-10-02",
+        "filename": "CTD_chem_gene_ixns.csv.gz",
+        "local_path": "data/raw/ctd/2026-10-02/CTD_chem_gene_ixns.csv.gz",
+        "name": "CTD",
+        "report_created": "2026-09-29",
+        "role": "chemical_gene_interaction",
+        "sha256": "84ed0fc7104fb886296157ea2da1690e9519ad8c8ba5450988936302c43fc82a",
+        "snapshot_type": "rolling_report",
+        "source_url": "https://ctdbase.org/downloads/"
+      },
+      "hgnc": {
+        "archive_page": "https://hgnc.genenames.org/download/archive/monthly/tsv/",
+        "filename": "hgnc_complete_set_2026-09-04.tsv",
+        "local_path": "data/raw/hgnc/2026-09-04/hgnc_complete_set_2026-09-04.tsv",
+        "name": "HGNC",
+        "release_date": "2026-09-04",
+        "role": "gene_identity_and_mapping",
+        "sha256": "6F43D6FF43AA9FDFA5FB2F20A20A7CACE66E6E02E2A0DCF19D9B726E2E248D20",
+        "snapshot_type": "monthly_archive"
+      },
+      "reactome": {
+        "crosscheck_mapping": "Ensembl2Reactome",
+        "disease_pathways_filename": "HumanDiseasePathways.txt",
+        "disease_pathways_local_path": "data/raw/reactome/v97/HumanDiseasePathways.txt",
+        "disease_pathways_sha256": "c044494679237839b0b0e8c132e785bf88021d92f3708d352313c928a72b32e0",
+        "download_page": "https://reactome.org/download/current/",
+        "ensembl_mapping_filename": "Ensembl2Reactome.txt",
+        "ensembl_mapping_local_path": "data/raw/reactome/v97/Ensembl2Reactome.txt",
+        "ensembl_mapping_sha256": "34852dc2ac258a851bad914708c0045a636161dbbeca604f04343174cca8d7fb",
+        "name": "Reactome",
+        "ncbi_mapping_filename": "NCBI2Reactome.txt",
+        "ncbi_mapping_local_path": "data/raw/reactome/v97/NCBI2Reactome.txt",
+        "ncbi_mapping_sha256": "44aec2f3d6c0d6f03268fbdc66f95a14673e86da31682b7edbd71c6c6a1ecc8d",
+        "pathways_filename": "ReactomePathways.txt",
+        "pathways_local_path": "data/raw/reactome/v97/ReactomePathways.txt",
+        "pathways_sha256": "f6d7a2bf89b5bcfe0250a0bc7f51bff94641447911712b8ff129f5b55e52df3a",
+        "primary_mapping": "NCBI2Reactome",
+        "release_archive": "https://doi.org/10.5281/zenodo.21383214",
+        "release_date": "2026-06-30",
+        "role": "gene_pathway",
+        "taxon_id": 9606,
+        "version": "97"
+      },
+      "string": {
+        "aliases_filename": "9606.protein.aliases.v12.5.txt.gz",
+        "aliases_local_path": "data/raw/string/v12.5/9606.protein.aliases.v12.5.txt.gz",
+        "aliases_sha256": "B65F730B993ED0C1BD72EDF4565D3D425DB42861101B29699704810E8F125680",
+        "links_filename": "9606.protein.physical.links.detailed.v12.5.txt.gz",
+        "links_local_path": "data/raw/string/v12.5/9606.protein.physical.links.detailed.v12.5.txt.gz",
+        "links_sha256": "1AFECE499D2508D46148F647A245B5FD4E9DE89B63B64665331C8BDF8622224A",
+        "name": "STRING",
+        "network_type": "physical",
+        "role": "gene_gene_physical_association",
+        "taxon_id": 9606,
+        "version": "12.5"
+      }
+    }
+  },
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "bytes": 1386848,
+      "dialect": {
+        "delimiter": "\t",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\n",
+        "quoteChar": "\""
+      },
+      "encoding": "utf-8",
+      "format": "tsv",
+      "hash": "sha256:4f8f48a8aaac82ca2914319f930165a1d029bb0818368560dfde0420c4c04c97",
+      "mediatype": "text/tab-separated-values",
+      "name": "genes",
+      "netem": {
+        "node_type": "gene",
+        "resource_kind": "node"
+      },
+      "path": "processed/nodes/genes.tsv",
+      "profile": "tabular-data-resource",
+      "rowCount": 19297,
+      "schema": {
+        "fields": [
+          {
+            "name": "canonical_id",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "ensembl_gene_id",
+            "type": "string"
+          },
+          {
+            "name": "ncbi_gene_id",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          "NA"
+        ],
+        "primaryKey": "canonical_id"
+      }
+    },
+    {
+      "bytes": 396426,
+      "dialect": {
+        "delimiter": "\t",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\n",
+        "quoteChar": "\""
+      },
+      "encoding": "utf-8",
+      "format": "tsv",
+      "hash": "sha256:d6b8919bbe8f822e7b6c46c171da1007d04745eb18822be9c33a21727c1cbd01",
+      "mediatype": "text/tab-separated-values",
+      "name": "chemicals",
+      "netem": {
+        "node_type": "chemical",
+        "resource_kind": "node"
+      },
+      "path": "processed/nodes/chemicals.tsv",
+      "profile": "tabular-data-resource",
+      "rowCount": 9601,
+      "schema": {
+        "fields": [
+          {
+            "name": "canonical_id",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "cas_rn",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          "NA"
+        ],
+        "primaryKey": "canonical_id"
+      }
+    },
+    {
+      "bytes": 97221,
+      "dialect": {
+        "delimiter": "\t",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\n",
+        "quoteChar": "\""
+      },
+      "encoding": "utf-8",
+      "format": "tsv",
+      "hash": "sha256:9675c819b64cf54c47d42254a7ce99101a1969d70cd47b61157dde7ddcf17671",
+      "mediatype": "text/tab-separated-values",
+      "name": "pathways",
+      "netem": {
+        "node_type": "pathway",
+        "resource_kind": "node"
+      },
+      "path": "processed/nodes/pathways.tsv",
+      "profile": "tabular-data-resource",
+      "rowCount": 1633,
+      "schema": {
+        "fields": [
+          {
+            "name": "canonical_id",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "is_disease_pathway",
+            "type": "boolean"
+          }
+        ],
+        "missingValues": [
+          "NA"
+        ],
+        "primaryKey": "canonical_id"
+      }
+    },
+    {
+      "bytes": 9764,
+      "dialect": {
+        "delimiter": "\t",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\n",
+        "quoteChar": "\""
+      },
+      "encoding": "utf-8",
+      "format": "tsv",
+      "hash": "sha256:cb36b94d5898072462a111601f7a2cb98cef122cd2717021cc8fd3147d3aa8b8",
+      "mediatype": "text/tab-separated-values",
+      "name": "tissues",
+      "netem": {
+        "node_type": "tissue",
+        "resource_kind": "node"
+      },
+      "path": "processed/nodes/tissues.tsv",
+      "profile": "tabular-data-resource",
+      "rowCount": 301,
+      "schema": {
+        "fields": [
+          {
+            "name": "canonical_id",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          "NA"
+        ],
+        "primaryKey": "canonical_id"
+      }
+    },
+    {
+      "bytes": 26412777,
+      "dialect": {
+        "delimiter": "\t",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\n",
+        "quoteChar": "\""
+      },
+      "encoding": "utf-8",
+      "format": "tsv",
+      "hash": "sha256:844667991d62bcceeec8d9a184d36bf1329fef9870a42bf4b5ba1d12126c5976",
+      "mediatype": "text/tab-separated-values",
+      "name": "gene_gene",
+      "netem": {
+        "edge_type": "gene_gene",
+        "resource_kind": "edge"
+      },
+      "path": "processed/edges/gene_gene.tsv",
+      "profile": "tabular-data-resource",
+      "rowCount": 422581,
+      "schema": {
+        "fields": [
+          {
+            "name": "source_id",
+            "type": "string"
+          },
+          {
+            "name": "target_id",
+            "type": "string"
+          },
+          {
+            "name": "relation",
+            "type": "string"
+          },
+          {
+            "name": "combined_score",
+            "type": "integer"
+          },
+          {
+            "name": "experimental_score",
+            "type": "integer"
+          },
+          {
+            "name": "database_score",
+            "type": "integer"
+          },
+          {
+            "name": "textmining_score",
+            "type": "integer"
+          },
+          {
+            "name": "supporting_protein_pairs",
+            "type": "integer"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "source_id",
+            "reference": {
+              "fields": "canonical_id",
+              "resource": "genes"
+            }
+          },
+          {
+            "fields": "target_id",
+            "reference": {
+              "fields": "canonical_id",
+              "resource": "genes"
+            }
+          }
+        ],
+        "missingValues": [
+          "NA"
+        ],
+        "primaryKey": [
+          "source_id",
+          "target_id",
+          "relation"
+        ]
+      }
+    },
+    {
+      "bytes": 56764847,
+      "dialect": {
+        "delimiter": "\t",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\n",
+        "quoteChar": "\""
+      },
+      "encoding": "utf-8",
+      "format": "tsv",
+      "hash": "sha256:c4f3a28c6aa7f7928757ee6dd9f0e90aa9a5da63fd54e9e4efbb0ae971e4b373",
+      "mediatype": "text/tab-separated-values",
+      "name": "chemical_gene",
+      "netem": {
+        "edge_type": "chemical_gene",
+        "resource_kind": "edge"
+      },
+      "path": "processed/edges/chemical_gene.tsv",
+      "profile": "tabular-data-resource",
+      "rowCount": 595993,
+      "schema": {
+        "fields": [
+          {
+            "name": "source_id",
+            "type": "string"
+          },
+          {
+            "name": "target_id",
+            "type": "string"
+          },
+          {
+            "name": "relation",
+            "type": "string"
+          },
+          {
+            "name": "supporting_curated_rows",
+            "type": "integer"
+          },
+          {
+            "name": "supporting_pubmed_count",
+            "type": "integer"
+          },
+          {
+            "name": "pubmed_ids",
+            "type": "string"
+          },
+          {
+            "name": "interaction_actions",
+            "type": "string"
+          },
+          {
+            "name": "gene_forms",
+            "type": "string"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "source_id",
+            "reference": {
+              "fields": "canonical_id",
+              "resource": "chemicals"
+            }
+          },
+          {
+            "fields": "target_id",
+            "reference": {
+              "fields": "canonical_id",
+              "resource": "genes"
+            }
+          }
+        ],
+        "missingValues": [
+          "NA"
+        ],
+        "primaryKey": [
+          "source_id",
+          "target_id",
+          "relation"
+        ]
+      }
+    },
+    {
+      "bytes": 2570773,
+      "dialect": {
+        "delimiter": "\t",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\n",
+        "quoteChar": "\""
+      },
+      "encoding": "utf-8",
+      "format": "tsv",
+      "hash": "sha256:e609e50cee87185ba92a066b01f7687409b8fc084d0f6bf9c017cc4886f97791",
+      "mediatype": "text/tab-separated-values",
+      "name": "gene_pathway",
+      "netem": {
+        "edge_type": "gene_pathway",
+        "resource_kind": "edge"
+      },
+      "path": "processed/edges/gene_pathway.tsv",
+      "profile": "tabular-data-resource",
+      "rowCount": 47326,
+      "schema": {
+        "fields": [
+          {
+            "name": "source_id",
+            "type": "string"
+          },
+          {
+            "name": "target_id",
+            "type": "string"
+          },
+          {
+            "name": "relation",
+            "type": "string"
+          },
+          {
+            "name": "evidence_codes",
+            "type": "string"
+          },
+          {
+            "name": "supporting_mapping_rows",
+            "type": "integer"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "source_id",
+            "reference": {
+              "fields": "canonical_id",
+              "resource": "genes"
+            }
+          },
+          {
+            "fields": "target_id",
+            "reference": {
+              "fields": "canonical_id",
+              "resource": "pathways"
+            }
+          }
+        ],
+        "missingValues": [
+          "NA"
+        ],
+        "primaryKey": [
+          "source_id",
+          "target_id",
+          "relation"
+        ]
+      }
+    },
+    {
+      "bytes": 55994210,
+      "dialect": {
+        "delimiter": "\t",
+        "doubleQuote": true,
+        "header": true,
+        "lineTerminator": "\n",
+        "quoteChar": "\""
+      },
+      "encoding": "utf-8",
+      "format": "tsv",
+      "hash": "sha256:eebe605796b8b437f0323df383533a19ad699f23b857eaa5d7ed1d6a68a76fde",
+      "mediatype": "text/tab-separated-values",
+      "name": "gene_tissue",
+      "netem": {
+        "edge_type": "gene_tissue",
+        "resource_kind": "edge"
+      },
+      "path": "processed/edges/gene_tissue.tsv",
+      "profile": "tabular-data-resource",
+      "rowCount": 548568,
+      "schema": {
+        "fields": [
+          {
+            "name": "source_id",
+            "type": "string"
+          },
+          {
+            "name": "target_id",
+            "type": "string"
+          },
+          {
+            "name": "relation",
+            "type": "string"
+          },
+          {
+            "name": "bgee_gene_id",
+            "type": "string"
+          },
+          {
+            "name": "call_quality",
+            "type": "string"
+          },
+          {
+            "name": "fdr",
+            "type": "number"
+          },
+          {
+            "name": "expression_score",
+            "type": "number"
+          },
+          {
+            "name": "expression_rank",
+            "type": "number"
+          },
+          {
+            "name": "self_observation_count",
+            "type": "integer"
+          },
+          {
+            "name": "descendant_observation_count",
+            "type": "integer"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "fields": "source_id",
+            "reference": {
+              "fields": "canonical_id",
+              "resource": "genes"
+            }
+          },
+          {
+            "fields": "target_id",
+            "reference": {
+              "fields": "canonical_id",
+              "resource": "tissues"
+            }
+          }
+        ],
+        "missingValues": [
+          "NA"
+        ],
+        "primaryKey": [
+          "source_id",
+          "target_id",
+          "relation"
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "path": "https://www.genenames.org/",
+      "title": "HGNC"
+    },
+    {
+      "path": "https://string-db.org/",
+      "title": "STRING"
+    },
+    {
+      "path": "https://ctdbase.org/",
+      "title": "Comparative Toxicogenomics Database"
+    },
+    {
+      "path": "https://reactome.org/",
+      "title": "Reactome"
+    },
+    {
+      "path": "https://www.bgee.org/",
+      "title": "Bgee"
+    }
+  ],
+  "title": "NetEM-Rebuild Core Graph V1",
+  "version": "1.0.0"
+}
