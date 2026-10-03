@@ -68,6 +68,20 @@ required_columns = [
     "name"
 ]
 
+[edge_attributes.gene_tissue]
+required_columns = [
+    "source_id",
+    "target_id",
+    "relation",
+    "bgee_gene_id",
+    "call_quality",
+    "fdr",
+    "expression_score",
+    "expression_rank",
+    "self_observation_count",
+    "descendant_observation_count"
+]
+
 
 [edges]
 required_columns = [

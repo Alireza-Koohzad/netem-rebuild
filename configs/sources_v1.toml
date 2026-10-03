@@ -70,3 +70,23 @@ disease_pathways_sha256 = "c044494679237839b0b0e8c132e785bf88021d92f3708d352313c
 
 download_page = "https://reactome.org/download/current/"
 release_archive = "https://doi.org/10.5281/zenodo.21383214"
+
+
+[sources.bgee]
+name = "Bgee"
+role = "gene_tissue"
+
+version = "15.2"
+release_date = "2024-05-21"
+taxon_id = 9606
+
+condition_scope = "anatomical_entities_only"
+file_format = "advanced"
+
+filename = "Homo_sapiens_expr_advanced.tsv.gz"
+local_path = "data/raw/bgee/v15.2/Homo_sapiens_expr_advanced.tsv.gz"
+
+sha256 = "3d8bacc5cb0e075ec55b90aa6ee0d72fce763a62b5d996384f18a802501da386"
+
+source_url = "https://www.bgee.org/ftp/bgee_v15/download/calls/expr_calls/Homo_sapiens_expr_advanced.tsv.gz"
+download_page = "https://www.bgee.org/download/gene-expression-calls?id=9606"

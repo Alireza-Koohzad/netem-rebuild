@@ -68,6 +68,7 @@ directed = true
 enabled = true
 source_type = "gene"
 target_type = "tissue"
+relation = "expressed_in"
 directed = true
 
 
@@ -211,3 +212,52 @@ edges = 47326
 active_core_genes = 11191
 core_gene_coverage_percent = 57.99
 maximum_pathway_size = 477
+
+
+[gene_tissue_network]
+source = "Bgee"
+source_version = "15.2"
+
+relation = "expressed_in"
+
+organism = "Homo sapiens"
+taxon_id = 9606
+
+gene_mapping = "Ensembl_to_HGNC"
+anatomical_namespace = "UBERON"
+
+expression_status = "present"
+call_quality = "gold quality"
+
+selection_strategy = "top_k_per_gene_by_expression_rank"
+top_k = 30
+lower_expression_rank_is_better = true
+tie_policy = "retain_all_boundary_ties"
+
+exclude_anatomical_ids = [
+    "UBERON:0000468"
+]
+
+directed = true
+
+preserve_expression_rank = true
+preserve_expression_score = true
+preserve_fdr = true
+preserve_observation_counts = true
+
+[gene_tissue_network.sensitivity]
+top_k_values = [20, 50]
+include_silver = true
+
+[gene_tissue_network.expected_build]
+tissues = 301
+edges = 548568
+active_core_genes = 18903
+core_gene_coverage_percent = 97.96
+
+minimum_gene_degree = 1
+median_gene_degree = 30
+maximum_gene_degree = 40
+
+maximum_tissue_degree = 5172
+maximum_fdr = 0.01
